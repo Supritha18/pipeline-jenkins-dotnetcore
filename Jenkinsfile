@@ -5,8 +5,10 @@ pipeline {
             steps {
 		       sh "echo $PWD"
                sh "ls"
-               sh "dotnet restore /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"
-		       sh "dotnet build /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"
+               sh '''#!/bin/bash
+                    dotnet restore /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln
+                    dotnet build /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln
+                '''               
             }
         }
          stage('UnitTests') {
