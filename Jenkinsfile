@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        dotnet ='/root/.dotnet'
+    }
     stages {
         stage('Build') {
             steps {
