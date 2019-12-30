@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-		       sh "dotnet restore TDD/TDD.sln"
-		       sh "dotnet build TDD/TDD.sln"
+		       sh "dotnet restore"
+		       sh "dotnet build"
             }
         }
          stage('UnitTests') {
             steps {
-              	sh returnStatus: true, script: "dotnet.exe test TDD/TDD.sln --logger \"trx;LogFileName=workspace/PipelineDockerDotNet/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+              	sh returnStatus: true, script: "dotnet test TDD/TDD.sln --logger \"trx;LogFileName=workspace/PipelineDockerDotNet/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
 		step([$class: 'MSTestPublisher', testResultsFile:"**/unit_tests.xml", failOnError: true, keepLongStdio: true])
             }
         }
