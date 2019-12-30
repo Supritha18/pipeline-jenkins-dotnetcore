@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               bat "C:/Nuget/nuget.exe restore C:/Users/daromero/source/repos/pipeline/TDD/TDD.sln"
+               bat "dotnet restore"
 		       bat "\"C:/Program Files/dotnet/dotnet.exe\" restore C:/Users/daromero/source/repos/pipeline/TDD/TDD.sln"
 		       bat "\"C:/Program Files/dotnet/dotnet.exe\" build C:/Users/daromero/source/repos/pipeline/TDD/TDD.sln"
             }
