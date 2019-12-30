@@ -3,14 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               bat "dotnet restore"
-		       bat "\"C:/Program Files/dotnet/dotnet.exe\" restore C:/Users/daromero/source/repos/pipeline/TDD/TDD.sln"
-		       bat "\"C:/Program Files/dotnet/dotnet.exe\" build C:/Users/daromero/source/repos/pipeline/TDD/TDD.sln"
+		       bat "dotnet.exe restore TDD/TDD.sln"
+		       bat "dotnet build TDD/TDD.sln"
             }
         }
          stage('UnitTests') {
             steps {
-              	bat returnStatus: true, script: "\"C:/Program Files/dotnet/dotnet.exe\" test C:/Users/daromero/source/repos/pipeline/TDD/TDD.sln --logger \"trx;LogFileName=C:/Program Files (x86)/Jenkins/workspace/PipelineDockerDotNet/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+              	bat returnStatus: true, script: "dotnet.exe test TDD/TDD.sln --logger \"trx;LogFileName=workspace/PipelineDockerDotNet/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
 		step([$class: 'MSTestPublisher', testResultsFile:"**/unit_tests.xml", failOnError: true, keepLongStdio: true])
             }
         }
@@ -18,10 +17,10 @@ pipeline {
         stage('Sonarqube') {
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    bat "dotnet test C:/Users/daromero/source/repos/pipeline/TDDTestProj/TDDTestProj.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+                    bat "dotnet test TDDTestProj/TDDTestProj.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
                     bat "dotnet build-server shutdown"
-                    bat "dotnet sonarscanner begin /k:\"TDD.Test\" /d:sonar.host.url=\"http://localhost:9999\" /d:sonar.login=\"075a4dff86c6782bc60368abdc32abf215d86338\"  /d:sonar.cs.opencover.reportsPaths=\"C:/Users/daromero/source/repos/pipeline/TDDTestProj/coverage.opencover.xml\" /d:sonar.coverage.exclusions=\"**Test*.cs\""
-                    bat "dotnet  build  C:/Users/daromero/source/repos/pipeline/TDD/TDD.sln"
+                    bat "dotnet sonarscanner begin /k:\"TDD.Test\" /d:sonar.host.url=\"http://10.0.75.1:9999\" /d:sonar.login=\"075a4dff86c6782bc60368abdc32abf215d86338\"  /d:sonar.cs.opencover.reportsPaths=\"TDDTestProj/coverage.opencover.xml\" /d:sonar.coverage.exclusions=\"**Test*.cs\""
+                    bat "dotnet  build  TDD/TDD.sln"
                     bat "dotnet sonarscanner end /d:sonar.login=admin /d:sonar.password=bitnami"
                 }
             }
