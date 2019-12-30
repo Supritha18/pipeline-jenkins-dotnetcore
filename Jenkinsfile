@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-		       sh "dotnet"
+		       sh "echo $PWD"
                sh "ls"
                sh "dotnet restore TDD/TDD.sln"
 		       sh "dotnet build TDD/TDD.sln"
