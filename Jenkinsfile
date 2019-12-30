@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-		       sh "dotnet restore"
-		       sh "dotnet build"
+		       sh "dotnet restore TDD/TDD.sln"
+		       sh "dotnet build TDD/TDD.sln"
             }
         }
          stage('UnitTests') {
