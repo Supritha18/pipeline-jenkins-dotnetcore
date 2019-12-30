@@ -1,14 +1,9 @@
 pipeline {
-    agent any
-    environment {
-        dotnet ='/root/.dotnet'
-    }
+    agent any    
     stages {
         stage('Build') {
-            steps {
-		       sh "echo $PWD"
-               sh "ls"
-               sh "/root/.dotnet restore /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"
+            steps {		       
+               sh "dotnet restore /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"
                sh "dotnet build /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"                             
             }
         }
