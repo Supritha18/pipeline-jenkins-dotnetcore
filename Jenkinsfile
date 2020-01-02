@@ -20,9 +20,9 @@ pipeline {
                 withSonarQubeEnv('sonarqube') {
                     sh "dotnet test TDDTestProj/TDDTestProj.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
                     sh "dotnet build-server shutdown"
-                    sh "dotnet sonarscanner begin /k:\"TDD.Test\" /d:sonar.host.url=\"http://10.0.75.1:9999\" /d:sonar.login=\"075a4dff86c6782bc60368abdc32abf215d86338\"  /d:sonar.cs.opencover.reportsPaths=\"TDDTestProj/coverage.opencover.xml\" /d:sonar.coverage.exclusions=\"**Test*.cs\""
+                    sh "dotnet sonarscanner begin /k:\"TDD.Test\" /d:sonar.host.url=\"http://192.168.99.100:9000\" /d:sonar.login=\"3943f664c8d24518d41362e916bd201f60d28fc2\"  /d:sonar.cs.opencover.reportsPaths=\"TDDTestProj/coverage.opencover.xml\" /d:sonar.coverage.exclusions=\"**Test*.cs\""
                     sh "dotnet  build  TDD/TDD.sln"
-                    sh "dotnet sonarscanner end /d:sonar.login=admin /d:sonar.password=bitnami"
+                    sh "dotnet sonarscanner end /d:sonar.login=admin /d:sonar.password=admin"
                 }
             }
         }
