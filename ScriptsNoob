@@ -1,0 +1,11 @@
+Docker commands:
+
+// Run dockerfile
+docker build . -t jenkins_dot_net_core
+
+//create container from image
+docker run --name [containername] -p 8011:8080 -p 50000:50000 [imageid]
+
+//run shell
+docker exec -it [imageID] bash
+docker exec -it --user root   [imageID] bash 
