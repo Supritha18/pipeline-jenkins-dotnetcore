@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {	
-               sh "dotnet tool install -g dotnetsay"
+               sh "dotnet clean TDD/TDD.sln"
                sh "dotnet restore /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"
                sh "dotnet build /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"                             
             }
