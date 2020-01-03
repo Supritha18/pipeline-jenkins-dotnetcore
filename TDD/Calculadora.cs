@@ -6,10 +6,7 @@ namespace TDD
     {
         public double Suma(double input1, double input2)
         {
-            if (input2 == 0)
-            {
-                throw new System.ArgumentException("0 division error");
-            }
+            
             return input1 + input2;
         }
 
