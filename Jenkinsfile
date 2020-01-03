@@ -9,7 +9,7 @@ pipeline {
         }
          stage('UnitTests') {
             steps {
-                sh "dotnet test TDDTestProj/TDDTestProj.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
+                sh "dotnet test TDDTestProj/TDDTestProj.csproj"
               	// sh return Status: true, script: "dotnet test TDD/TDD.sln --logger \"trx;LogFileName=/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
 		        // step([$class: 'MSTestPublisher', testResultsFile:"**/unit_tests.xml", failOnError: true, keepLongStdio: true])
             }
