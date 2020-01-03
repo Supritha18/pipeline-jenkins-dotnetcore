@@ -34,7 +34,7 @@ namespace TDD
 
         public double Radicacion(double input1)
         {
-            if (input2 == 0)
+            if (input1 == 0)
             {
                 throw new System.ArgumentException("0 division error");
             }
