@@ -2,7 +2,8 @@ pipeline {
     agent any    
     stages {
         stage('Build') {
-            steps {		       
+            steps {	
+               sh "dotnet tool install -g dotnetsay"
                sh "dotnet restore /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"
                sh "dotnet build /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"                             
             }
