@@ -10,7 +10,7 @@ pipeline {
         }
          stage('UnitTests') {
             steps {                
-              	sh returnStatus: true, script: "dotnet test TDD/TDD.sln --logger \"trx;LogFileName=/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover  /p:MergeWith=/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/coverage.opencover.xml /p:CoverletOutput=coverage "
+              	sh returnStatus: true, script: "dotnet test TDD/TDD.sln --logger \"trx;LogFileName=/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
 		        step([$class: 'MSTestPublisher', testResultsFile:"**/unit_tests.xml", failOnError: true, keepLongStdio: true])
             }
         }
@@ -18,7 +18,7 @@ pipeline {
         stage('Sonarqube') {
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh "dotnet test /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln /p:CollectCoverage=true /p:CoverletOutputFormat=opencover  /p:MergeWith=/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/coverage.opencover.xml /p:CoverletOutput=coverage "
+                    sh "dotnet test /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
                     sh "dotnet build-server shutdown"
                     sh "PATH=\"${PATH}:/root/.dotnet/tools\""
                     sh "dotnet sonarscanner begin /k:\"NetCoreTDD\" /d:sonar.host.url=\"http://10.0.75.1:9999\" /d:sonar.login=\"e698064a9d0e03485cb1eb35d8d7dc9aafaed425\"  /d:sonar.cs.opencover.reportsPaths=\"/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/coverage.opencover.xml\""
