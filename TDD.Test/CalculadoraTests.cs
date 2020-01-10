@@ -107,6 +107,33 @@ namespace TDD.Tests
 
         }
 
+
+        [TestMethod()]
+        public void DivisionZeroTest()
+        {
+            // ** Arrange
+            // Create instance calculadora
+            Calculadora calculadora = new Calculadora();
+
+            // Definir una entrada y una salida
+            double expectedResult = double.NaN;
+            double input1 = 10;
+            double input2 = 0;
+            //  Arrange **
+
+
+            // ** Act
+            // Ejecutar el metodo bajo prueba:
+            double actualResult = calculadora.Division(input1, input2);
+            //  Act **
+
+            // ** Assert
+            // Verificar el resultado:
+            Assert.AreEqual(expectedResult, actualResult);
+            // Assert **
+
+        }
+
         [TestMethod()]
         public void RadicacionTest()
         {

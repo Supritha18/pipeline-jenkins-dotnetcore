@@ -24,7 +24,7 @@ namespace TDD
         {
             if (input2 == 0)
             {
-                throw new System.ArgumentException("0 division error");
+                return double.NaN;
             }
             return input1 / input2;
         }
