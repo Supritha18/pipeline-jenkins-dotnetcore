@@ -8,12 +8,12 @@ pipeline {
                sh "dotnet build /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"                             
             }
         }
-        //  stage('UnitTests') {
-        //     steps {                
-        //       	sh returnStatus: true, script: "dotnet test TDD/TDD.sln --logger \"trx;LogFileName=/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
-		//         step([$class: 'MSTestPublisher', testResultsFile:"**/unit_tests.xml", failOnError: true, keepLongStdio: true])
-        //     }
-        // }
+         stage('UnitTests') {
+            steps {                
+              	sh returnStatus: true, script: "dotnet test TDD/TDD.sln --logger \"trx;LogFileName=/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover  /p:MergeWith=/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/coverage.opencover.xml /p:CoverletOutput=coverage "
+		        step([$class: 'MSTestPublisher', testResultsFile:"**/unit_tests.xml", failOnError: true, keepLongStdio: true])
+            }
+        }
         
         stage('Sonarqube') {
             steps {
