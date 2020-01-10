@@ -2,7 +2,7 @@ pipeline {
     agent any    
     stages {
         stage('Build') {
-            steps {	
+            steps('Build Class library') {	
                sh "dotnet clean TDD/TDD.sln"
                sh "dotnet restore /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"
                sh "dotnet build /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"                             
@@ -13,6 +13,9 @@ pipeline {
               	sh returnStatus: true, script: "dotnet test TDD/TDD.sln --logger \"trx;LogFileName=/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
 		        step([$class: 'MSTestPublisher', testResultsFile:"**/unit_tests.xml", failOnError: true, keepLongStdio: true])
             }
+            
+
+            
         }
         
         stage('Sonarqube') {
