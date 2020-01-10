@@ -1,33 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 using StructureMap;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using TDD.API.Controllers;
 using TDD.API.Interfaces;
 using TDD.API.Services;
 
-
 namespace TDD.API.Test
 {
-    [TestFixture]
-    public class SumaTest
+    public class DivisionTest
     {
-        SumaController _controller;
+        DivisionController _controller;
         Container _container;
 
 
         [OneTimeSetUp]
-        public void SumaTestSetUp()
+        public void DivisionTestSetUp()
         {
             _container = new Container();
             _container.Configure(config =>
             {
-                config.For<IOperacionesService>().Add(new SumaService()).Named("B");
+                config.For<IOperacionesService>().Add(new DivisionService()).Named("D");
             });
-            _controller = new SumaController(_container);
+            _controller = new DivisionController(_container);
         }
 
-        [TestCase(0, 0)]
-        public void SumaGet(double input1, double input2)
+        [TestCase(1, 1)]
+        public void DivisionGet(double input1, double input2)
         {
             // Act
             var okResult = _controller.Get(input1, input2);
@@ -38,10 +39,11 @@ namespace TDD.API.Test
 
 
 
-        [TestCase(5, 300, 305)]
-        [TestCase(5, 45, 50)]
-        [TestCase(-10, 20, 10)]
-        public void SumaGetValue(double input1, double input2, double expectedResult)
+        [TestCase(300, 5, 60)]
+        [TestCase(45, 5, 9)]
+        [TestCase(-10, 5, -2)]
+        [TestCase(5, 0, double.NaN)]
+        public void DivisionGetValue(double input1, double input2, double expectedResult)
         {
 
             // Act

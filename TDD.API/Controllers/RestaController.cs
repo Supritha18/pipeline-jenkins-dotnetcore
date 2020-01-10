@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using StructureMap;
 using TDD.API.Interfaces;
-using TDD.API.Services;
 
 namespace TDD.API.Controllers
 {
@@ -16,9 +11,9 @@ namespace TDD.API.Controllers
 
         private readonly IOperacionesService _service;
 
-        public RestaController(IOperacionesService service)
+        public RestaController(IContainer service)
         {
-            _service = service;
+            _service = service.GetInstance<IOperacionesService>("A");
         }
 
         // GET: api/Suma/5

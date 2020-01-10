@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using StructureMap;
+using TDD.API.Interfaces;
 
 namespace TDD.API.Controllers
 {
@@ -11,6 +8,17 @@ namespace TDD.API.Controllers
     [ApiController]
     public class MultiplicacionController : ControllerBase
     {
+        private readonly IOperacionesService _service;
 
+        public MultiplicacionController(IContainer service)
+        {
+            _service = service.GetInstance<IOperacionesService>("C");
+        }
+
+        // GET: api/Suma/5
+        public ActionResult Get(double input1, double input2)
+        {
+            return Ok(_service.Get(input1, input2));
+        }
     }
 }

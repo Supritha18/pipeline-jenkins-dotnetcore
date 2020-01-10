@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StructureMap;
 using TDD.API.Interfaces;
-using TDD.API.Services;
 
 namespace TDD.API.Controllers
 {
@@ -10,9 +10,9 @@ namespace TDD.API.Controllers
     {
         private readonly IOperacionesService _service;
 
-        public SumaController(IOperacionesService service)
+        public SumaController(IContainer service)
         {
-            _service = service;
+            _service = service.GetInstance<IOperacionesService>("B");
         }
 
         // GET: api/Suma/5
