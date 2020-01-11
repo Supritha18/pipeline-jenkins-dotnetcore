@@ -18,7 +18,11 @@ RUN apt-get update \
 # Install the .Net Core framework, set the path, and show the version of core installed.
 RUN apt-get install -y dotnet-sdk-3.1 && \
     export PATH=$PATH:$HOME/dotnet && \
+    export PATH=$PATH:/root/.dotnet/tools && \
     dotnet --version
+    
+# Install the sonnarqube
+RUN dotnet tool install --global dotnet-sonarscanner
 
 # Good idea to switch back to the jenkins user.
 # USER jenkins
