@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
-using StructureMap;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using TDD.API.Controllers;
 using TDD.API.Interfaces;
 using TDD.API.Services;
@@ -13,18 +10,14 @@ namespace TDD.API.Test
     public class DivisionTest
     {
         DivisionController _controller;
-        Container _container;
+        IEnumerable<IOperacionesService> _service;
 
 
         [OneTimeSetUp]
         public void DivisionTestSetUp()
         {
-            _container = new Container();
-            _container.Configure(config =>
-            {
-                config.For<IOperacionesService>().Add(new DivisionService()).Named("D");
-            });
-            _controller = new DivisionController(_container);
+            _service = new List<DivisionService>() { new DivisionService() };
+            _controller = new DivisionController(_service);
         }
 
         [TestCase(1, 1)]

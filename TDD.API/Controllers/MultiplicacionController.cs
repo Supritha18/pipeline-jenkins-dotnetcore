@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StructureMap;
+using System.Collections.Generic;
+using System.Linq;
 using TDD.API.Interfaces;
 
 namespace TDD.API.Controllers
@@ -10,9 +11,9 @@ namespace TDD.API.Controllers
     {
         private readonly IOperacionesService _service;
 
-        public MultiplicacionController(IContainer service)
+        public MultiplicacionController(IEnumerable<IOperacionesService> service)
         {
-            _service = service.GetInstance<IOperacionesService>("C");
+            _service = service.FirstOrDefault(h => h.GetType().Name == "MultiplicacionService");
         }
 
         // GET: api/Suma/5

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
-using StructureMap;
+using System.Collections.Generic;
 using TDD.API.Controllers;
 using TDD.API.Interfaces;
 using TDD.API.Services;
@@ -10,18 +10,14 @@ namespace TDD.API.Test
     public class MultiplicacionTest
     {
         MultiplicacionController _controller;
-        Container _container;
+        IEnumerable<IOperacionesService> _service;
 
 
         [OneTimeSetUp]
         public void MultiplicacionTestSetUp()
         {
-            _container = new Container();
-            _container.Configure(config =>
-            {
-                config.For<IOperacionesService>().Add(new MultiplicacionService()).Named("C");
-            });
-            _controller = new MultiplicacionController(_container);
+            _service = new List<MultiplicacionService>() { new MultiplicacionService() };
+            _controller = new MultiplicacionController(_service);
         }
 
         [TestCase(0, 0)]

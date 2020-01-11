@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
-using StructureMap;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using TDD.API.Controllers;
 using TDD.API.Interfaces;
 using TDD.API.Services;
@@ -13,18 +10,14 @@ namespace TDD.API.Test
     public class RestaTest
     {
         RestaController _controller;
-        Container _container;
+        IEnumerable<IOperacionesService> _service;
 
 
         [OneTimeSetUp]
         public void RestaTestSetUp()
         {
-            _container = new Container();
-            _container.Configure(config =>
-            {
-                config.For<IOperacionesService>().Add(new RestaService()).Named("A");
-            });
-            _controller = new RestaController(_container);
+            _service = new List<RestaService>() { new RestaService() };
+            _controller = new RestaController(_service);
         }
 
         [TestCase(0, 0)]
