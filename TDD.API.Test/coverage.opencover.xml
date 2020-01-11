@@ -2,9 +2,9 @@
 <CoverageSession>
   <Summary numSequencePoints="170" visitedSequencePoints="128" numBranchPoints="18" visitedBranchPoints="11" sequenceCoverage="75.3" branchCoverage="61.1" maxCyclomaticComplexity="27" minCyclomaticComplexity="7" visitedClasses="17" numClasses="20" visitedMethods="32" numMethods="41" />
   <Modules>
-    <Module hash="1023F6CA-CF55-455B-8382-F6D08C7D4F86">
+    <Module hash="E4147DD4-B1C3-474C-8497-7F7961E16819">
       <ModulePath>TDD.API.dll</ModulePath>
-      <ModuleTime>2020-01-11T05:12:38</ModuleTime>
+      <ModuleTime>2020-01-11T05:15:58</ModuleTime>
       <ModuleName>TDD.API</ModuleName>
       <Files>
         <File uid="1" fullPath="D:\Code\TDD\pipeline-jenkins-dotnetcore\TDD.API\Program.cs" />
@@ -364,9 +364,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="90690820-BC16-4824-844F-164BBC1AD88F">
+    <Module hash="B0CAF926-4B8D-4296-9776-E1C6890157E2">
       <ModulePath>TDD.API.Test.dll</ModulePath>
-      <ModuleTime>2020-01-11T05:12:38</ModuleTime>
+      <ModuleTime>2020-01-11T05:15:58</ModuleTime>
       <ModuleName>TDD.API.Test</ModuleName>
       <Files>
         <File uid="11" fullPath="C:\Users\danie\.nuget\packages\microsoft.net.test.sdk\16.2.0\build\netcoreapp1.0\Microsoft.NET.Test.Sdk.Program.cs" />
@@ -675,9 +675,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="101003B1-10AB-4E75-AFC5-DD6E9A5497C5">
+    <Module hash="445EFEC6-0D37-4EE1-8B13-DB03E04517A2">
       <ModulePath>TDD.ClassLibrary.dll</ModulePath>
-      <ModuleTime>2020-01-11T05:12:38</ModuleTime>
+      <ModuleTime>2020-01-11T05:15:58</ModuleTime>
       <ModuleName>TDD.ClassLibrary</ModuleName>
       <Files>
         <File uid="20" fullPath="D:\Code\TDD\pipeline-jenkins-dotnetcore\TDD.ClassLibrary\Calculadora.cs" />
