@@ -1,11 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using TDD.ClassLibrary;
-using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
+
 
 namespace TDD.Tests
 {
-    [TestClass()]
+    [TestFixture]
     public class CalculadoraTests
     {
 
@@ -30,7 +29,7 @@ namespace TDD.Tests
             // Assert **
         }
 
-        [TestMethod()]
+        [Test()]
         public void RestaTest()
         {
             // ** Arrange
@@ -56,7 +55,7 @@ namespace TDD.Tests
 
         }
 
-        [TestMethod()]
+        [Test()]
         public void MultiplicacionTest()
         {
             // ** Arrange
@@ -82,7 +81,7 @@ namespace TDD.Tests
 
         }
 
-        [TestMethod()]
+        [Test()]
         public void DivisionTest()
         {
             // ** Arrange
@@ -109,7 +108,7 @@ namespace TDD.Tests
         }
 
 
-        [TestMethod()]
+        [Test()]
         public void DivisionZeroTest()
         {
             // ** Arrange
@@ -135,7 +134,7 @@ namespace TDD.Tests
 
         }
 
-        [TestMethod()]
+        [Test()]
         public void RadicacionTest()
         {
             // ** Arrange
@@ -159,7 +158,7 @@ namespace TDD.Tests
             // Assert **
 
         }
-        [TestMethod]
+        [Test]
         public void PotenciacionTest()
         {
             // **Arrange 

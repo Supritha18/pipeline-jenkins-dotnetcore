@@ -6,6 +6,7 @@ using TDD.API.Services;
 
 namespace TDD.API.Test.Services
 {
+    [TestFixture]
     public class MultiplicacionServiceTest
     {
 

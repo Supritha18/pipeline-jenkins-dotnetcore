@@ -6,6 +6,7 @@ using TDD.API.Services;
 
 namespace TDD.API.Test.Services
 {
+    [TestFixture]
     public class DivisionServiceTest
     {
         [TestCase(5, 5, 1)]

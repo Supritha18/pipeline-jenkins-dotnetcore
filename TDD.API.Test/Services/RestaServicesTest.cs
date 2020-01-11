@@ -3,6 +3,7 @@ using TDD.API.Services;
 
 namespace TDD.API.Test.Services
 {
+    [TestFixture]
     public class RestaServicesTest
     {
         [TestCase(1, 1, 0)]
