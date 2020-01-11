@@ -55,17 +55,16 @@ namespace TDD.Tests
 
         }
 
-        [Test()]
-        public void MultiplicacionTest()
+        [TestCase(5, 5, 25)]
+        [TestCase(5, 0, 0)]
+        public void MultiplicacionTest(double input1, double input2, double expectedResult)
         {
             // ** Arrange
             // Create instance calculadora
             Calculadora calculadora = new Calculadora();
 
-            // Definir una entrada y una salida
-            double expectedResult = 25;
-            double input1 = 5;
-            double input2 = 5;
+
+
             //  Arrange **
 
 
@@ -81,19 +80,14 @@ namespace TDD.Tests
 
         }
 
-        [Test()]
-        public void DivisionTest()
+        [TestCase(10, 2, 5)]
+        [TestCase(5, 0, double.NaN)]
+        public void DivisionTest(double input1, double input2, double expectedResult)
         {
             // ** Arrange
             // Create instance calculadora
             Calculadora calculadora = new Calculadora();
-
-            // Definir una entrada y una salida
-            double expectedResult = 5;
-            double input1 = 10;
-            double input2 = 2;
             //  Arrange **
-
 
             // ** Act
             // Ejecutar el metodo bajo prueba:
@@ -108,33 +102,7 @@ namespace TDD.Tests
         }
 
 
-        [Test()]
-        public void DivisionZeroTest()
-        {
-            // ** Arrange
-            // Create instance calculadora
-            Calculadora calculadora = new Calculadora();
-
-            // Definir una entrada y una salida
-            double expectedResult = double.NaN;
-            double input1 = 10;
-            double input2 = 0;
-            //  Arrange **
-
-
-            // ** Act
-            // Ejecutar el metodo bajo prueba:
-            double actualResult = calculadora.Division(input1, input2);
-            //  Act **
-
-            // ** Assert
-            // Verificar el resultado:
-            Assert.AreEqual(expectedResult, actualResult);
-            // Assert **
-
-        }
-
-        [Test()]
+        [Test]
         public void RadicacionTest()
         {
             // ** Arrange
