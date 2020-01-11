@@ -21,4 +21,4 @@ RUN apt-get install -y dotnet-sdk-3.1 && \
     dotnet --version
 
 # Good idea to switch back to the jenkins user.
-USER jenkins
+# USER jenkins
