@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
+using TDD.ClassLibrary;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace TDD.Tests

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using TDD.API.Interfaces;
+using TDD.ClassLibrary;
 
 namespace TDD.API.Services
 {
@@ -14,7 +12,8 @@ namespace TDD.API.Services
             {
                 return double.NaN;
             }
-            return input1 / input2;
+            Calculadora calculadora = new Calculadora();
+            return calculadora.Division(input1, input2);
         }
 
     }

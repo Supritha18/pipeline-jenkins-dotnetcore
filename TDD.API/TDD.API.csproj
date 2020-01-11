@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TDD\TDD.csproj" />
+    <ProjectReference Include="..\TDD.ClassLibrary\TDD.ClassLibrary.csproj" />
   </ItemGroup>
 
 

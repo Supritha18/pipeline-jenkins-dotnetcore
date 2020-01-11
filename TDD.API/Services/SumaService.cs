@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using TDD.API.Interfaces;
+﻿using TDD.API.Interfaces;
+using TDD.ClassLibrary;
 
 namespace TDD.API.Services
 {
@@ -10,7 +7,7 @@ namespace TDD.API.Services
     {
         public double Get(double input1, double input2)
         {
-            TDD.Calculadora calculadora = new Calculadora();
+            Calculadora calculadora = new Calculadora();
             return calculadora.Suma(input1, input2);
         }
     }

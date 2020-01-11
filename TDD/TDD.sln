@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDD", "TDD.csproj", "{85932898-056E-4872-8621-136F97D230DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDD.ClassLibrary", "..\TDD.ClassLibrary\TDD.ClassLibrary.csproj", "{85932898-056E-4872-8621-136F97D230DF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDD.Test", "..\TDD.Test\TDD.Test.csproj", "{2D057D26-07B4-4F00-8B70-62D690E18077}"
 EndProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class Library", "Class Libr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Back End", "Back End", "{4DE8464C-F545-414F-8D37-8B1983AC7B54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDD.API.Test", "..\TDD.API.Test\TDD.API.Test.csproj", "{D83FE013-973A-4BA7-B599-69BA2F779387}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDD.API.Test", "..\TDD.API.Test\TDD.API.Test.csproj", "{D83FE013-973A-4BA7-B599-69BA2F779387}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
