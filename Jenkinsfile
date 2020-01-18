@@ -37,17 +37,25 @@ pipeline {
                 }
             }
         }
-        stage("Test back end") {
-            agent {
-                dockerfile {
-                    filename "Dockerfile"
-                }
-                steps {
-                    sh "docker build -t aspnetapp ."
-                    sh "docker run -d -p 8080:80 --name myapp aspnetapp"
-                }
-            }            
-        }        
+        stage('Example Test') {
+            agent { dockerfile 'Dockerfile' } 
+           steps {
+                sh "docker build -t aspnetapp ."
+                sh "docker run -d -p 8080:80 --name myapp aspnetapp"
+            }
+        }
+
+        // stage("Test back end") {
+        //     agent {
+        //         dockerfile {
+        //             filename "Dockerfile"
+        //         }
+        //         steps {
+        //             sh "docker build -t aspnetapp ."
+        //             sh "docker run -d -p 8080:80 --name myapp aspnetapp"
+        //         }
+        //     }            
+        // }        
     }
 }
 
