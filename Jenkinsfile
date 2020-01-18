@@ -38,7 +38,7 @@ pipeline {
             }
         }
         stage('Example Test') {
-            agent { dockerfile 'Dockerfile' } 
+            agent { dockerfile 'DockerFile' } 
            steps {
                 sh "docker build -t aspnetapp ."
                 sh "docker run -d -p 8080:80 --name myapp aspnetapp"
