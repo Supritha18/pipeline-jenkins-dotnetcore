@@ -37,18 +37,18 @@ pipeline {
                 }
             }
         }
-        stage('Deploy API') {
-             agent {                
-                dockerfile {                    
-                    filename 'Dockerfile'           
-                }
-                steps {
-                    sh "docker build -t aspnetapp ."
-                    sh "docker run -d -p 8080:80 --name myapp aspnetapp"
-                    sh "docker run -d -p 8055:80 --name myapp aspnetapp"
-                }
-            }                       
-        }
+        // stage('Deploy API') {
+        //      agent {                
+        //         dockerfile {                    
+        //             filename 'Dockerfile'           
+        //         }
+        //     }            
+        //     steps {
+        //         sh "docker build -t aspnetapp ."
+        //         sh "docker run -d -p 8080:80 --name myapp aspnetapp"
+        //         sh "docker run -d -p 8055:80 --name myapp aspnetapp"
+        //     }
+        // }
 
 
     }
