@@ -1,5 +1,5 @@
 pipeline {
-     agent { label 'docker' }
+    agent any    
     stages {
         stage('Build') {
             steps('Build Class library') {	
@@ -36,14 +36,19 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }        
-    }
+        }
+        stage('Deploy API') {
+             agent {                
+                dockerfile {
+                    filename 'DockerFile'           
+                }
+            }            
+           steps {
+                sh "docker build -t aspnetapp ."
+                sh "docker run -d -p 8080:80 --name myapp aspnetapp"
+            }
+        }
 
-     post{
-        always {
-            sh "docker build -t aspnetapp ."
-            sh "docker run -d -p 8080:80 --name myapp aspnetapp"            
-        }   
     }
 }
 
