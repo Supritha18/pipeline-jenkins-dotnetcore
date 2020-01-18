@@ -9,3 +9,14 @@ docker run --name [containername] -p 8011:8080 -p 50000:50000 [imageid]
 //run shell
 docker exec -it [imageID] bash
 docker exec -it --user root   [imageID] bash 
+
+// Lasted
+
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock ubuntu:latest sh -c "apt-get update ; apt-get install docker.io -y ; bash"
+
+curl -sSL https://get.docker.com/ | sh
+
+
+$ docker commit 5a8f89adeead newimagename
+
+$ docker run -ti -v "$PWD/dir1":/dir1 -v "$PWD/dir2":/dir2 newimagename /bin/bash
