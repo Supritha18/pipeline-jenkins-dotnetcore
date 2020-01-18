@@ -15,6 +15,9 @@ RUN apt-get update \
     sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" > /etc/apt/sources.list.d/dotnetdev.list' && \
     apt-get update
 
+# Install docker
+RUN curl -sSL https://get.docker.com/ | sh
+
 # Install the .Net Core framework, set the path, and show the version of core installed.
 RUN apt-get install -y dotnet-sdk-3.1 && \
     export PATH=$PATH:$HOME/dotnet && \
@@ -24,5 +27,6 @@ RUN apt-get install -y dotnet-sdk-3.1 && \
 # Install the sonnarqube
 RUN dotnet tool install --global dotnet-sonarscanner
 
+VOLUME /var/run/docker.sock
 # Good idea to switch back to the jenkins user.
 # USER jenkins
