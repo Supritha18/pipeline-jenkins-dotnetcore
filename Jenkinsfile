@@ -36,7 +36,22 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }                
+        }
+        stage('Deploy API') {
+             agent {                
+                dockerfile {
+                    filename 'DockerFile'           
+                    filename 'Dockerfile'           
+                }
+            }            
+           steps {
+                sh "docker build -t aspnetapp ."
+                sh "docker run -d -p 8080:80 --name myapp aspnetapp"
+                sh "docker run -d -p 8055:80 --name myapp aspnetapp"
+            }
+        }
+
+
     }
 }
 
