@@ -1,5 +1,5 @@
 pipeline {
-    agent any    
+    agent { dockerfile true }
     stages {
         stage('Build') {
             steps('Build Class library') {	
@@ -36,26 +36,14 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }
-        stage('Example Test') {
-            agent { dockerfile 'DockerFile' } 
-           steps {
-                sh "docker build -t aspnetapp ."
-                sh "docker run -d -p 8080:80 --name myapp aspnetapp"
-            }
-        }
+        }        
+    }
 
-        // stage("Test back end") {
-        //     agent {
-        //         dockerfile {
-        //             filename "Dockerfile"
-        //         }
-        //         steps {
-        //             sh "docker build -t aspnetapp ."
-        //             sh "docker run -d -p 8080:80 --name myapp aspnetapp"
-        //         }
-        //     }            
-        // }        
+     post{
+        always {
+            sh "docker build -t aspnetapp ."
+            sh "docker run -d -p 8080:80 --name myapp aspnetapp"            
+        }   
     }
 }
 
