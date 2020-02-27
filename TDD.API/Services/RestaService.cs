@@ -7,8 +7,8 @@ namespace TDD.API.Services
     {
         public double Get(double input1, double input2)
         {
-            Calculadora calculadora = new Calculadora();
-            return calculadora.Resta(input1, input2);
+            Resta resta = new Resta();
+            return resta.Operar(input1, input2);
         }
     }
 }

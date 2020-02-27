@@ -7,8 +7,8 @@ namespace TDD.API.Services
     {
         public double Get(double input1, double input2)
         {
-            Calculadora calculadora = new Calculadora();
-            return calculadora.Suma(input1, input2);
+            Suma suma = new Suma();
+            return suma.Operar(input1, input2);
         }
     }
 }

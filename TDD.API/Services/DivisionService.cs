@@ -12,8 +12,8 @@ namespace TDD.API.Services
             {
                 return double.NaN;
             }
-            Calculadora calculadora = new Calculadora();
-            return calculadora.Division(input1, input2);
+            Division division = new Division();
+            return division.Operar(input1, input2);
         }
 
     }

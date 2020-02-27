@@ -16,11 +16,11 @@ namespace TDD.Tests
         {
             // ** Arrange
             // Create instance calculadora
-            Calculadora calculadora = new Calculadora();
+            Suma suma = new Suma();
 
             // ** Act
             // Ejecutar el metodo bajo prueba:
-            double actualResult = calculadora.Suma(input1, input2);
+            double actualResult = suma.Operar(input1, input2);
             //  Act **
 
             // ** Assert
@@ -34,7 +34,7 @@ namespace TDD.Tests
         {
             // ** Arrange
             // Create instance calculadora
-            Calculadora calculadora = new Calculadora();
+            Resta resta = new Resta();
 
             // Definir una entrada y una salida
             double expectedResult = 1;
@@ -45,7 +45,7 @@ namespace TDD.Tests
 
             // ** Act
             // Ejecutar el metodo bajo prueba:
-            double actualResult = calculadora.Resta(input1, input2);
+            double actualResult = resta.Operar(input1, input2);
             //  Act **
 
             // ** Assert
@@ -61,7 +61,7 @@ namespace TDD.Tests
         {
             // ** Arrange
             // Create instance calculadora
-            Calculadora calculadora = new Calculadora();
+            Multiplicacion multiplicacion = new Multiplicacion();
 
 
 
@@ -70,7 +70,7 @@ namespace TDD.Tests
 
             // ** Act
             // Ejecutar el metodo bajo prueba:
-            double actualResult = calculadora.Multiplicacion(input1, input2);
+            double actualResult = multiplicacion.Operar(input1, input2);
             //  Act **
 
             // ** Assert
@@ -86,12 +86,12 @@ namespace TDD.Tests
         {
             // ** Arrange
             // Create instance calculadora
-            Calculadora calculadora = new Calculadora();
+            Division division = new Division();
             //  Arrange **
 
             // ** Act
             // Ejecutar el metodo bajo prueba:
-            double actualResult = calculadora.Division(input1, input2);
+            double actualResult = division.Operar(input1, input2);
             //  Act **
 
             // ** Assert
@@ -107,7 +107,7 @@ namespace TDD.Tests
         {
             // ** Arrange
             // Create instance calculadora
-            Calculadora calculadora = new Calculadora();
+            Radicacion radicacion = new Radicacion();
 
             // Definir una entrada y una salida
             double expectedResult = 5;
@@ -117,7 +117,7 @@ namespace TDD.Tests
 
             // ** Act
             // Ejecutar el metodo bajo prueba:
-            double actualResult = calculadora.Radicacion(input1);
+            double actualResult = radicacion.Operar(input1, -1);
             //  Act **
 
             // ** Assert
@@ -130,14 +130,14 @@ namespace TDD.Tests
         public void PotenciacionTest()
         {
             // **Arrange 
-            Calculadora calculadora = new Calculadora();
+            Potenciacion potenciacion = new Potenciacion();
             double expectedResult = 100;
             double input1 = 10;
             double input2 = 2;
 
 
             // ** Act
-            double actResult = calculadora.Potenciacion(input1, input2);
+            double actResult = potenciacion.Operar(input1, input2);
 
 
             // ** Assert
