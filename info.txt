@@ -1,0 +1,7 @@
+
+Sonarqube bitnami:
+https://medium.com/@thiagoloureiro/code-analysis-with-sonarqube-docker-net-core-aee521ee8931
+
+Login: admin
+Password: bitnami
+Key node-1: e698064a9d0e03485cb1eb35d8d7dc9aafaed425
