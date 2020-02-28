@@ -8,10 +8,6 @@ namespace TDD.API.Services
     {
         public double Get(double input1, double input2)
         {
-            if (input2 == 0)
-            {
-                return double.NaN;
-            }
             Division division = new Division();
             return division.Operar(input1, input2);
         }
