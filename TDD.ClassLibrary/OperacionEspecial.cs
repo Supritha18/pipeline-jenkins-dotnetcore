@@ -7,7 +7,11 @@ namespace TDD.ClassLibrary
     {
         public double Operar(double input1, double input2)
         {
-            throw new NotImplementedException();
+            if (input2 == 0)
+            {
+                return double.NaN;
+            }
+            return (input1 + input2 / input2);
         }
     }
 }
