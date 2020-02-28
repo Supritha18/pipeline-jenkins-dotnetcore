@@ -1,5 +1,4 @@
-﻿using System;
-using TDD.ClassLibrary.interfaces;
+﻿using TDD.ClassLibrary.interfaces;
 
 namespace TDD.ClassLibrary
 {

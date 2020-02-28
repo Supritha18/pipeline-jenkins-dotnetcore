@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TDD.ClassLibrary.interfaces;
+﻿using TDD.ClassLibrary.interfaces;
 
 namespace TDD.ClassLibrary
 {
