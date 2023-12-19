@@ -1,14 +1,21 @@
 pipeline {
     agent any    
     stages {
-        stage('Build') {
-            steps('Build Class library') {
-		    sh echo "building the app"
-              // sh "dotnet clean TDD/TDD.sln"
-              // sh "dotnet restore C:/ProgramData/Jenkins/.jenkins/workspace/dotnet-pipeline_master/TDD/TDD.sln"
-              // sh "dotnet build C:/ProgramData/Jenkins/.jenkins/workspace/dotnet-pipeline_master/TDD/TDD.sln"                        
+	stage('Build') {
+        steps{
+		sh echo "building the app"                       
             }
         }
+	    
+       /* stage('Build') {
+            steps('Build Class library') {
+		    sh echo "building the app"
+               sh "dotnet clean TDD/TDD.sln"
+               sh "dotnet restore C:/ProgramData/Jenkins/.jenkins/workspace/dotnet-pipeline_master/TDD/TDD.sln"
+               sh "dotnet build C:/ProgramData/Jenkins/.jenkins/workspace/dotnet-pipeline_master/TDD/TDD.sln"                        
+            }
+        } */
+	    
          stage('UnitTests') {
             steps {                
               	sh returnStatus: true, script: "dotnet test TDD/TDD.sln --logger \"trx;LogFileName=/var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/unit_tests.xml\" --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover"
@@ -38,6 +45,8 @@ pipeline {
                 }
             }
         }
+    }
+}
         // stage('Deploy API') {
         //      agent {                
         //         dockerfile {                    
