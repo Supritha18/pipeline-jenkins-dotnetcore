@@ -45,8 +45,6 @@ pipeline {
                 }
             }
         }
-    }
-}
         // stage('Deploy API') {
         //      agent {                
         //         dockerfile {                    
