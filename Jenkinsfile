@@ -4,8 +4,8 @@ pipeline {
         stage('Build') {
             steps('Build Class library') {	
                sh "dotnet clean TDD/TDD.sln"
-               sh "dotnet restore /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"
-               sh "dotnet build /var/jenkins_home/workspace/peline-jenkins-dotnetcore_master/TDD/TDD.sln"                             
+               sh "dotnet restore C:/ProgramData/Jenkins/.jenkins/workspace/dotnet-pipeline_master/TDD/TDD.sln"
+               sh "dotnet build C:/ProgramData/Jenkins/.jenkins/workspace/dotnet-pipeline_master/TDD/TDD.sln"                        
             }
         }
          stage('UnitTests') {
