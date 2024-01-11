@@ -7,14 +7,14 @@ pipeline {
             }
         }
 	    
-       /* stage('Build') {
+        stage('Build') {
             steps('Build Class library') {
 		    sh echo "building the app"
                sh "dotnet clean TDD/TDD.sln"
                sh "dotnet restore C:/ProgramData/Jenkins/.jenkins/workspace/dotnet-pipeline_master/TDD/TDD.sln"
                sh "dotnet build C:/ProgramData/Jenkins/.jenkins/workspace/dotnet-pipeline_master/TDD/TDD.sln"                        
             }
-        } */
+        } 
 	    
          stage('UnitTests') {
             steps {                
