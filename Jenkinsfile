@@ -1,15 +1,10 @@
 pipeline {
     agent any    
     stages {
-	stage('Build') {
-        steps{
-		echo "building the app"                       
-            }
-        }
-	    
+		    
         stage('Build') {
             steps('Build Class library') {
-		    sh echo "building the app"
+		 echo "building the app"
                sh "dotnet clean TDD/TDD.sln"
                sh "dotnet restore C:/ProgramData/Jenkins/.jenkins/workspace/dotnet-pipeline_master/TDD/TDD.sln"
                sh "dotnet build C:/ProgramData/Jenkins/.jenkins/workspace/dotnet-pipeline_master/TDD/TDD.sln"                        
