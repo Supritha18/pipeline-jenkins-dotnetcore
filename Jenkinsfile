@@ -1,6 +1,13 @@
 pipeline {
     agent any    
     stages {
+	     
+	environment {
+        
+        DOTNET_VERSION= '8.0.100'
+        //DOTNET_VERSION = '3.1'
+        dotnet = 'C:\\Program Files\\dotnet\\dotnet.exe'
+    }
 		    
         stage('Build') {
             steps('Build Class library') {
