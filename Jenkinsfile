@@ -6,8 +6,8 @@ pipeline {
             steps('Build Class library') {
 		 echo "building the app"
                //sh "dotnet clean TDD/TDD.sln"
-               sh "dotnet restore C:/Users/supritha.a.suresh/Documents/demo/pipeline-jenkins-dotnetcore/TDD/TDD.sln"
-               sh "dotnet build C:/Users/supritha.a.suresh/Documents/demo/pipeline-jenkins-dotnetcore/TDD/TDD.sln"                        
+               dotnet restore C:/Users/supritha.a.suresh/Documents/demo/pipeline-jenkins-dotnetcore/TDD/TDD.sln
+               dotnet build C:/Users/supritha.a.suresh/Documents/demo/pipeline-jenkins-dotnetcore/TDD/TDD.sln                       
             }
         } 
 	    
